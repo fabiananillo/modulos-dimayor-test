@@ -36,7 +36,7 @@ class BottomAppBarMenu extends ApiDimayor {
               const BottomAppBarModel(
                   show: 0,
                   type: "native",
-                  url: "https://dev.appfutbolcolombiano.com",
+                  url: "https://stg.appfutbolcolombiano.com",
                   label: "Calendarios",
                   logo:
                       "https://cmsdimayor.s3.amazonaws.com/appdimayorLogos/footerTabs/calendar.png",
