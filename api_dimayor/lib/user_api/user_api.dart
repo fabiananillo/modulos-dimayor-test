@@ -12,16 +12,29 @@ class UserApi extends ApiDimayorUser {
             "https://dev.appfutbolcolombiano.com/upload-avatar/$userToken"),
         body: jsonEncode(<String, String>{'image': imageBase64}));
     if (response.statusCode == 200) {
-      print(response.body);
       return jsonDecode(response.body);
     } else {
       return {'reason': response.reasonPhrase, 'status': response.statusCode};
     }
   }
+  //comentario prueba
 
   @override
-  Future<String> userImageAvatar() {
-    // TODO: implement userImageAvatar
-    throw UnimplementedError();
+  Future<List<Map<String, dynamic>>> phoneUser(
+      {required Map<String, dynamic> phoneUserData}) async {
+    final response = await http.post(
+        Uri.parse("https://dev.appfutbolcolombiano.com/get-user-by-phone"),
+        body: jsonEncode(phoneUserData));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = jsonDecode(response.body);
+      List listData = data['data']['Items'];
+      List<Map<String, dynamic>> listItems =
+          listData.map<Map<String, dynamic>>((item) => item).toList();
+      return listItems;
+    } else {
+      return [
+        {'reason': response.reasonPhrase, 'status': response.statusCode}
+      ];
+    }
   }
 }

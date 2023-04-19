@@ -17,5 +17,11 @@ abstract class ApiDimayorUser {
   Future<Map<String, dynamic>> uploadAvatar(
       {required String userToken, required String imageBase64});
 
-  Future<String> userImageAvatar();
+  Future<List<Map<String, dynamic>>> phoneUser(
+      {required Map<String, dynamic> phoneUserData});
+}
+
+abstract class ApiDimayorCalendarTest{
+  Future<List<Map<String, dynamic>>> getLigaCalendar();
+  Future<Map<String, dynamic>> getTeamShield();
 }

@@ -8,6 +8,7 @@ class BottomAppBarMenu extends ApiDimayor {
   @override
   Future<List<BottomAppBarModel>> bottomAppBarMenuApi() async {
     return await getEndpointBottomMenu().then((menu) {
+      //return await getEndpointBottomMenu().then((menu) {
       List data = menu['data'];
       List<BottomAppBarModel> listMenu = data
           .map<BottomAppBarModel>(
@@ -34,9 +35,9 @@ class BottomAppBarMenu extends ApiDimayor {
     return await Future.delayed(const Duration(milliseconds: 500))
         .then((value) => <BottomAppBarModel>[
               const BottomAppBarModel(
-                  show: 0,
+                  show: 1,
                   type: "native",
-                  url: "https://stg.appfutbolcolombiano.com",
+                  url: "https://dev.appfutbolcolombiano.com",
                   label: "Calendarios",
                   logo:
                       "https://cmsdimayor.s3.amazonaws.com/appdimayorLogos/footerTabs/calendar.png",
@@ -58,8 +59,9 @@ class BottomAppBarMenu extends ApiDimayor {
                   logo:
                       "https://cmsdimayor.s3.amazonaws.com/appdimayorLogos/footerTabs/news.png",
                   id: "2"),
+              //hide tab collection for test
               const BottomAppBarModel(
-                  show: 1,
+                  show: 0,
                   type: "webview",
                   url: "https://dimayor.golball.com/",
                   label: "Colección",
